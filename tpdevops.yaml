@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tpdevops
+---
+# Deployment : tpdevops
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tpdevops
+  namespace: tpdevops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tpdevops
+  template:
+    metadata:
+      labels:
+        app: tpdevops
+    spec:
+      containers:
+        - name: tpdevops
+          image: docker.io/aricaud49/tp_devops:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tpdevops
+  namespace: tpdevops
+spec:
+  selector:
+    app: tpdevops
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
