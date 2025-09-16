@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'luksor',
+                git branch: 'main',
                     url: 'https://github.com/aricaud49/tpdevops.git'
             }
         }
