@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: tpdevops
-          image: docker.io/aricaud49/tp_devops:v2
+          image: docker.io/aricaud49/tp_devops:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
