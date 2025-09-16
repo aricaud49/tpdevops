@@ -23,6 +23,7 @@ pipeline {
 				sh 'minikube kubectl -- apply -f tpdevops.yaml -n tpdevops'
 				sh 'minikube kubectl -- rollout status deployment/tpdevops -n tpdevops --timeout=120s'
 				sh 'minikube kubectl -- -n tpdevops port-forward --address 0.0.0.0 service/tpdevops 8082:80 &'
+				sh 'sleep 20'
     			 }
 			}
 		}
