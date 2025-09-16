@@ -17,13 +17,5 @@ pipeline {
 			  }
             }
         }
-		stage('Deploy') {
-		 	steps {
-			 script {	
-				sh 'minikube kubectl -- apply -f tpdevops.yaml -n tpdevops'
-				sh 'minikube kubectl -- port-forward --address 0.0.0.0 service/tpdevops 8082:80 &'
-    			 }
-			}
-		}
 	}		
 }
