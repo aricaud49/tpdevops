@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Agent_Docker' }
+    agent { label 'Agent_AME' }
     stages {
         stage('Checkout') {
             steps {
