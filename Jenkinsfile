@@ -4,13 +4,13 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'luksor',
-                    url: 'https://github.com/MELARBOUDI/tpdevops1.git'
+                    url: 'https://github.com/aricaud49/tpdevops.git'
             }
         }
 		stage('Build') {
             steps {
 			  script {
-               def customImage = docker.build("dretaux/tp_devops:v2")
+               def customImage = docker.build("aricaud49/tp_devops:v2")
 
                 /* Push the container to the custom Registry */
                 customImage.push()
