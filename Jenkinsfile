@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Agent_AME' }
+    agent any
     stages {
         stage('Checkout') {
             steps {
@@ -18,7 +18,6 @@ pipeline {
             }
         }
 		stage('Deploy') {
-			agent { label 'Agent_AME' } 
 		 	steps {
 			 script {	
 				sh 'minikube kubectl -- apply -f tpdevops.yaml -n tpdevops'
